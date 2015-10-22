@@ -9,6 +9,7 @@ Usage
 -----
 
 Example usage:
+
     $ ls
     conf/  _nginx.cfg
     $ ls -R *
