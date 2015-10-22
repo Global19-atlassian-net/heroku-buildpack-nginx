@@ -9,10 +9,14 @@ Usage
 -----
 
 Example usage:
-
+    $ ls
+    conf/  _nginx.cfg
     $ ls -R *
     conf:
-    mime.types     _nginx.cfg     nginx.conf.erb
+    nginx.conf.erb
+
+    $ cat _nginx.cfg
+    export NGINX_VERSION=1.9.5
 
     $ heroku create --stack cedar --buildpack https://github.com/abhishekmunie/heroku-buildpack-nginx.git
     ...
@@ -32,6 +36,9 @@ The buildpack will detect your app as nginx if it has the file
 directives as `listen <%= ENV['PORT'] %>;` and also include `daemon off;` in
 order for this buildpack to work correctly.
 
+To configure the version of nginx used, modify the _nginx.cfg file in the root
+directory.
+
 To start the server run `bin/start_nginx`.
 If no `Procfile` is present buildpack will create one with `web: bin/start_nginx`
 
@@ -39,6 +46,11 @@ As an alternative to the above instructions you may wish to investigate
 [heroku-buildpack-multi](https://github.com/ddollar/heroku-buildpack-multi)
 in order to support more complex use-cases such as compiling a static site
 that is served by nginx or placing nginx in front of app server processes.
+
+Logs
+----
+
+The sample nginx configuration is set to log to stdout.
 
 Hacking
 -------
