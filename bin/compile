@@ -144,7 +144,7 @@ do
 done
 
 echo "Booting nginx..."
-exec nginx -V --with-debug -p .
+exec nginx --with-debug -p .
 EOF
 chmod +x "$build_dir/bin/start_nginx"
 echo "done"
