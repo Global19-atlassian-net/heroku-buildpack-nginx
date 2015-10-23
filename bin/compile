@@ -129,6 +129,10 @@ mkdir -p logs
 touch logs/access.log logs/error.log
 (tail -qF -n 0 --pid=\$\$ logs/*.log &)
 (bundle exec puma -C config/puma.rb &)
+while [[ ! -f "/tmp/puma.decoraid.sock" ]]
+do
+	sleep 1
+done
 exec nginx -p .
 EOF
 chmod +x "$build_dir/bin/start_nginx"
