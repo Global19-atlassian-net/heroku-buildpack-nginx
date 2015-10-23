@@ -129,7 +129,7 @@ mkdir -p logs
 touch logs/access.log logs/error.log
 (tail -qF -n 0 --pid=\$\$ logs/*.log &)
 (bundle exec puma -C config/puma.rb &)
-while [[ ! -f "/tmp/puma.decoraid.sock" ]]
+while [[ ! -f "/tmp/started" ]]
 do
 	sleep 1
 done
