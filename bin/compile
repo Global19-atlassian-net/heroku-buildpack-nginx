@@ -128,11 +128,11 @@ echo "Rendering conf file..."
 erb conf/nginx.conf.erb > conf/nginx.conf
 
 echo "Creating logs..."
-mkdir -p /logs
-touch /logs/access.log /logs/error.log
+mkdir -p logs/nginx/
+touch logs/nginx/access.log logs/nginx/error.log
 
 echo "Tailing logs..."
-(tail -qF -n 0 --pid=\$\$ /logs/*.log &)
+(tail -qF -n 0 --pid=\$\$ logs/nginx/*.log &)
 
 echo "Starting puma..."
 (bundle exec puma -C config/puma.rb &)
