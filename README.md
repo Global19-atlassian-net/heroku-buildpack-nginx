@@ -11,9 +11,9 @@ Usage
 Example usage:
 
     $ ls
-    conf/  _nginx.cfg
+    config/  _nginx.cfg
     $ ls -R *
-    conf:
+    config:
     nginx.conf.erb
 
     $ cat _nginx.cfg
