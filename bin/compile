@@ -124,8 +124,8 @@ echo -n "-----> Creating startup script... "
 mkdir -p "$build_dir/bin"
 cat <<EOF >"$build_dir/bin/start_nginx"
 #!/usr/bin/env bash
-echo "Rendering conf file..."
-erb conf/nginx.conf.erb > conf/nginx.conf
+echo "Rendering nginx conf file..."
+erb config/nginx.conf.erb > config/config.conf
 
 echo "Creating logs..."
 mkdir -p logs/nginx/
